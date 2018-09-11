@@ -1,5 +1,7 @@
 node('master') {
 
+cleanWs()
+
 stage('checkout'){
 git credentialsId: 'git', url: 'https://github.com/rajtupakula/examples.git'
 }
