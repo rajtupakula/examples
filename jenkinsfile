@@ -6,6 +6,13 @@ stage('checkout'){
 git credentialsId: 'git', url: 'https://github.com/rajtupakula/examples.git'
 }
 
+stage('package for eks'){
+echo step for packaging
+}
+
+stage('Zalenium test for eks'){
+echo step for testing
+}
 stage('deploy  on eks'){
 
 sh '''kubectl apply -f guestbook/redis-master-deployment.yaml
