@@ -6,18 +6,18 @@ git credentialsId: 'git', url: 'https://github.com/rajtupakula/examples.git'
 
 stage('deploy  on eks'){
 
-sh '''kubectl apply -f examples/guestbook/redis-master-deployment.yaml
+sh '''kubectl apply -f guestbook/redis-master-deployment.yaml
 
   kubectl get pods
 
-  kubectl apply -f redis-master-service.yaml
-  kubectl apply -f redis-slave-deployment.yaml
+  kubectl apply -f guestbook/redis-master-service.yaml
+  kubectl apply -f guestbook/redis-slave-deployment.yaml
 
-  kubectl apply -f redis-slave-service.yaml
+  kubectl apply -f guestbook/redis-slave-service.yaml
 
-  kubectl apply -f frontend-deployment.yaml
+  kubectl apply -f guestbook/frontend-deployment.yaml
 
-  kubectl apply -f frontend-service.yaml
+  kubectl apply -f guestbook/frontend-service.yaml
 
   kubectl get service -o wide'''
 
